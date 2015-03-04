@@ -19,5 +19,5 @@ Use:
 ```
 pento-pento LX 20
 ```
-finds the LX solution (see <http://www.iread.it/Poly/P55.html>) in 2 min 15 sec on my machine.
-The CNF has 64132 variables and 217389 clauses.
+finds the LX solution (see <http://www.iread.it/Poly/P55.html>) in 45 sec on my machine.
+The CNF has 41308 variables and 126381 clauses.
