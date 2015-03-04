@@ -39,8 +39,14 @@ mainf ps w = do
             SA.unknown (((0,0),(0,False)),((w-1,w-1),(3,True))) boolean
           let cover :: M.Map (Int,Int) [Boolean]
               cover = M.fromListWith (++) $ do
-                (i,v) <- SA.assocs place
+                (i@(offset,orientation),v) <- SA.assocs place
                 let q = realize i p
+
+                guard $ all ( \ o ->
+                   q /= realize (offset, o) p
+                            )
+                  $ init $ A.range ((0,False),orientation)
+                
                 guard $ all ( \ i -> A.inRange (SA.bounds pic) i )
                       $ A.indices q
                 (i,True) <- A.assocs q                
