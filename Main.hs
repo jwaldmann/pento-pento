@@ -30,6 +30,7 @@ newtype Nocode c = Nocode c
 instance Monad m => Decode m (Nocode c) c where
   decode (Nocode c) = return c
 
+mainf :: String -> Int -> IO ()
 mainf ps w = do
   out <- solve $ do
     pic <- SA.unknown ((0,0),(w-1,w-1)) boolean
